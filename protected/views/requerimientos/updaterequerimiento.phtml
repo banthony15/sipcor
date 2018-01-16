@@ -1,0 +1,148 @@
+<ol class="breadcrumb">
+    <li>
+        <i class="fa fa-home">
+        <?php  if (isset($_view_params['menu'])):?>
+        <?php  for ($i= 0; $i < count($_view_params['menu']); $i++):?>         
+        <a href="<?php  echo $_view_params['menu'][$i]['link'];?>"><?php  echo $_view_params['menu'][$i]['title']; ?></a></i>
+
+        <?php  endfor;?>
+        <?php  endif;?> 
+
+    </li>
+
+    <li class="active">
+        <i class="fa fa-fw fa-file"></i> Requerimientos
+    </li>
+
+  
+
+    <li class="active">
+        <i class="fa fa-file-text"></i> Actualizar Requerimiento
+    </li>
+</ol>
+
+<body>
+     <header class="header">
+		<div class= "row ">
+		    <div class="col-md-12" >
+			<form id="valreque" class="form-horizontal" action="<?php  echo BASE_URL;?>requerimientos/updaterequerimiento" method="post">
+
+		 		<div class= "panel panel-primary" >
+		 			<div class= "panel-heading">
+		 				<h3 class= "panel-title"> Datos del Requerimiento</h3>
+		 			</div>
+		 					
+		 			<div class="panel-body">		 				
+	        				<input type="hidden" name="id"  value="<?php echo $this->_requerimiento[0]['id'] ?>" >
+						    <div class="form-group">
+						        <label class="control-label col-sm-3">Fecha del Requerimiento</label>
+						            <div class='col-sm-3'>
+						            	<div class="input-group">								            
+								        	<input type="text" id="datepicker" name="fecha"  class="form-control" value="<?php echo $this->_requerimiento[0]['fecha'] ?>">
+									 	 <span class="input-group-addon glyphicon glyphicon-calendar"></span>
+										</div>									        	
+								   	</div>
+
+							  	<label class="control-label col-sm-2">Hora </label>
+							  		<div class="col-sm-3">
+						            	<div class="input-group">								  		
+							    			<input id="timepicker1" type="text" class="form-control" name="hora" title="hora" value="<?php echo $this->_requerimiento[0]['hora'] ?>">	
+									 	 <span class="input-group-addon glyphicon glyphicon-time"></span>
+										</div>								    									    			
+							 		 </div>
+						    </div>
+
+						<div class="form-group">
+						        <label class="control-label col-sm-3" >Fecha de la Tramitacion del documento</label>
+						            <div class='col-sm-3'>
+						            	<div class="input-group">						            
+								        	<input type="text" id="date" name="fecha_documento"  class="form-control" value="<?php echo $this->_requerimiento[0]['fecha_documento'] ?>">
+									 	 <span class="input-group-addon glyphicon glyphicon-calendar"></span>
+										</div>									        
+								   	</div>
+
+								<label class="control-label col-sm-2">Tipo de Requerimiento</label>
+									<div class="col-sm-3">
+										<select class="form-control" name="tipo_de_requerimiento" id="tipo_de_requerimiento">
+											<option><?php echo $this->_requerimiento[0]['tipo de requerimiento'] ?></option>											
+										</select>
+									</div>
+							</div>						    
+
+							<div class="form-group">
+								<label class="control-label col-sm-3">Tipo de Solicitud</label>
+									<div class="col-sm-3">
+										<select class="form-control" name="tipo_de_solicitud" id="tipo_de_solicitud" >
+											<option><?php echo $this->_requerimiento[0]['tipo de solicitud'] ?></option>	
+										</select>
+									</div>
+								<label class="control-label col-sm-2">N°</label>
+									<div class="col-sm-3">								
+											<input type="text" class="form-control" name="numero" placeholder="N° del documento" id="numero" title="N° del documento" value="<?php echo $this->_requerimiento[0]['numero'] ?>">							
+									</div>
+							</div>
+
+	
+
+							<div class="form-group">
+								<label class="control-label col-sm-3">Sistema</label>
+									<div class="col-sm-3">
+										<select class="form-control" name="Sistema" id="Sistema">
+										</select>
+									</div>
+								<label class="control-label col-sm-2">Modulo</label>
+									<div class="col-sm-3">
+										<select class="form-control" name="Modulo" id="Modulo">
+										<option><?php echo $this->_requerimiento[0]['descripcion_sistema'] ?></option>
+										</select>
+									</div>									
+							</div>	
+
+							<div class="form-group">
+								<label class="control-label col-sm-4">Status</label>
+									<div class="col-sm-5">
+										<select class="form-control" name="status" id="status">
+											<option><?php echo $this->_requerimiento[0]['status'] ?></option>										
+										</select>
+									</div>
+							</div>							
+
+							<div class="form-group">
+								<label class="control-label col-sm-4">Descripción</label>
+									<div class="col-sm-5">
+
+										<textarea type="text" class="form-control" name="descripcion" placeholder="Max. 120 Caracteres" maxlength="120" id="descripcion" class=estilotextarea1 cols="60" rows="2"><?php echo $this->_requerimiento[0]['descripcion'] ?></textarea> 
+				
+									</div>
+							</div>
+
+							<div class="form-group">
+								<label class="control-label col-sm-4">Solución</label>
+									<div class="col-sm-5">
+											<textarea type="text" class="form-control" name="solucion" placeholder="Max. 120 Caracteres" maxlength="120" id="solucion" class=estilotextarea2 cols="60" rows="2"><?php echo $this->_requerimiento[0]['solucion'] ?></textarea> 					
+									</div>
+
+							</div>
+
+							<div class="form-group">
+								<label class="control-label col-sm-4">Observación</label>
+									<div class="col-sm-5">
+											<textarea type="text" class="form-control" name="observaciones" placeholder="Max. 120 Caracteres" maxlength="120" id="observaciones" class=estilotextarea2 cols="60" rows="2" ><?php echo $this->_requerimiento[0]['observaciones'] ?></textarea>					
+									</div>
+
+							</div>
+
+						<div class="col-sm-offset-6">
+							<input type="submit" value="Registrar" class="btn btn-primary">
+						</div>
+		 		 		
+		 			</div>
+		 		</div>
+		 		
+		 	
+		 		</form>	
+		 	</div>
+		</div>
+	</header>
+</body>
+

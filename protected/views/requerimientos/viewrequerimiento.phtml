@@ -1,0 +1,244 @@
+<ol class="breadcrumb">
+    <li>
+        <i class="fa fa-home">
+        <?php  if (isset($_view_params['menu'])):?>
+        <?php  for ($i= 0; $i < count($_view_params['menu']); $i++):?>         
+        <a href="<?php  echo $_view_params['menu'][$i]['link'];?>"><?php  echo $_view_params['menu'][$i]['title']; ?></a></i>
+
+        <?php  endfor;?>
+        <?php  endif;?> 
+
+    </li>
+
+    <li class="active">
+        <i class="fa fa-fw fa-file"></i> Requerimientos
+    </li>
+   
+
+    <li class="active">
+        <i class="fa fa-file-text"></i> Requerimiento Registrado
+    </li>
+</ol>
+
+<body>
+     <header class="header">
+		<div class= "row ">
+		    <div class="col-md-12" >
+			<form  class="form-horizontal" action="<?php  echo BASE_URL;?>requerimientos/viewrequerimiento" method="post">
+
+		 		<div class= "panel panel-primary" >
+		 			<div class= "panel-heading" >
+		 				<h3 class= "panel-title fa fa-user">Datos del Solicitante</h3>
+		 			</div>
+							
+		 			<div class="panel-body">
+
+
+		 			<div class="form-group">
+						<div class="col-sm-1">
+		 					<input type="hidden" class="form-control" name="persona" readonly="" value="<?php echo $this->_requerimiento[0]['id'] ?>" >
+		 				</div>
+					</div>
+
+					<div class="form-group">
+		
+						<label class="control-label col-sm-3">Cedula</label>
+							<div class="col-sm-3">								
+								<input type="text" class="form-control" name="cedula" readonly="" placeholder="Cedula" id="cedula" title="Cedula" value="<?php echo $this->_requerimiento[0]['cedula'] ?>" >										
+							</div>
+
+						<label class="control-label col-sm-2">Credencial</label>
+							<div class="col-sm-3">								
+								<input type="text" class="form-control" name="credencial" readonly="" placeholder="Credencial" id="credencial" title="credencial" value="<?php echo $this->_requerimiento[0]['credencial'] ?>" >										
+							</div>
+
+
+					</div>							
+
+					<div class="form-group">
+						<label class="control-label col-sm-3">Primer Nombre</label>
+							<div class="col-sm-3">						
+								<input type="text" class="form-control"  name="nombre_1" readonly="" placeholder="Primer Nombre" title="nombre_1" value="<?php echo $this->_requerimiento[0]['nombre_1'] ?>">								
+							</div>
+						<label class="control-label col-sm-2">Segundo Nombre</label>
+							<div class="col-sm-3">							
+								<input type="text" class="form-control"  name="nombre_2" readonly="" placeholder=" Segundo Nombre" title="nombre_2" value="<?php echo $this->_requerimiento[0]['nombre_2'] ?>">								
+							</div>
+						</div>
+
+					<div class="form-group">
+						<label class="control-label col-sm-3">Primer Apellido</label>
+							<div class="col-sm-3">
+								<input type="text" class="form-control"  name="apellido_1" readonly="" placeholder="Primer apellido" title="apellido_1" value="<?php echo $this->_requerimiento[0]['apellido_1'] ?>">							
+							</div>
+						<label class="control-label col-sm-2">Segundo Apellido</label>							
+							<div class="col-sm-3">						
+								<input type="text" class="form-control"  name="apellido_2" readonly="" placeholder=" Segundo apellido" title="apellido_2" value="<?php echo $this->_requerimiento[0]['apellido_2'] ?>">								
+							</div>
+					</div>
+
+					<div class="form-group">
+						<label class="control-label col-sm-3">Cargo</label>
+							<div class="col-sm-3">
+								<input type="text" class="form-control"  name="cargo" readonly="" placeholder="Cargo" title="Cargo" value="<?php echo $this->_requerimiento[0]['cargo'] ?>">
+							</div>
+
+						<label class="control-label col-sm-2">Jerarquia</label>
+							<div class="col-sm-3">
+								<select class="form-control" disabled="" name="jerarquia"  id="jerarquia" title="jerarquia">
+									<option><?php echo $this->_requerimiento[0]['jerarquia'] ?></option>									
+								</select>
+							</div>
+					</div>
+
+					<div class="form-group">
+						<label class="control-label col-sm-5">correo electronico</label>
+							<div class="col-sm-3">
+									<input type="text" class="form-control" name="correo" readonly="" placeholder="Ingrese un correo" title="Correo" value="<?php echo $this->_requerimiento[0]['correo'] ?>">
+							</div>
+					</div>
+
+		 			</div>
+		 		</div>
+
+				<div class= "panel panel-primary" >
+		 			<div class= "panel-heading" >
+		 				<h3 class= "panel-title fa fa-user">Datos del Despacho</h3>
+		 			</div>		 					
+		 			<div class="panel-body">
+
+					<div class="form-group">
+						<label class="control-label col-sm-4 ">Numero de contacto</label>
+							<div class="col-sm-2">
+								<select class="form-control" disabled="" name="cod_area" id="cod_area">
+									<option><?php echo $this->_requerimiento[0]['cod_area'] ?></option>									
+								</select>
+							</div>
+							<div class="col-sm-4">	
+									<input type="text" class="form-control" name="numero_telefono" placeholder="Ingrese un numero de telefono" title="numero de telefono" readonly="" value="<?php echo $this->_requerimiento[0]['num_cel'] ?>">		
+							</div>
+					</div>
+
+					<div class="form-group">
+						<label class="control-label col-sm-4">Direccion</label>
+							<div class="col-sm-4">
+								<select class="form-control" disabled="" name="areac" id="areac">
+									<option><?php echo $this->_requerimiento[0]['descripcion_depen'] ?></option>									
+								</select>								
+							</div>			          
+					</div>							
+			
+
+		 			</div>
+		 		</div>	    
+
+		 		<div class= "panel panel-primary" >
+		 			<div class= "panel-heading">
+		 				<h3 class= "panel-title"> Datos del Requerimiento</h3>
+		 			</div>
+		 					
+		 			<div class="panel-body">		 				
+
+						    <div class="form-group">
+						        <label class="control-label col-sm-3">Fecha del Requerimiento</label>
+						            <div class='col-sm-3'>
+						            	<div class="input-group">							            
+								        	<input type="text" id="datepicker" name="fecha" disabled="" class="form-control" value="<?php echo $this->_requerimiento[0]['fecha'] ?>">
+									 	 <span class="input-group-addon glyphicon glyphicon-calendar"></span>
+										</div>										        
+								   	</div>
+
+							  	<label class="control-label col-sm-2">Hora</label>
+							  		<div class="col-sm-3">
+						            	<div class="input-group">								  		
+							    			<input type="text" class="form-control" readonly="" name="hora" title="hora" value="<?php echo $this->_requerimiento[0]['hora'] ?>">
+									 	 <span class="input-group-addon glyphicon glyphicon-calendar"></span>
+										</div>								    										    			
+							 		 </div>
+						    </div>
+
+						<div class="form-group">
+						        <label class="control-label col-sm-3" >Fecha de la Tramitacion del documento</label>
+						            <div class='col-sm-3'>
+						            	<div class="input-group">							            
+								        	<input type="text" id="date" name="fecha_documento" disabled="" class="form-control" value="<?php echo $this->_requerimiento[0]['fecha_documento'] ?>">
+									 	 <span class="input-group-addon glyphicon glyphicon-calendar"></span>
+										</div>										        
+								   	</div>
+
+								<label class="control-label col-sm-2">Tipo de Requerimiento</label>
+									<div class="col-sm-3">
+										<select class="form-control" name="tipo_de_requerimiento" disabled="" id="tipo_de_requerimiento" >
+											<option><?php echo $this->_requerimiento[0]['tipo de requerimiento'] ?></option>											
+										</select>
+									</div>
+							</div>						    
+
+							<div class="form-group">
+								<label class="control-label col-sm-3">Tipo de Solicitud</label>
+									<div class="col-sm-3">
+										<select class="form-control" name="tipo_de_solicitud" disabled="" id="tipo_de_solicitud">
+											<option><?php echo $this->_requerimiento[0]['tipo de solicitud'] ?></option>	
+										</select>
+									</div>
+								<label class="control-label col-sm-2">N°</label>
+									<div class="col-sm-3">								
+											<input type="text" class="form-control" readonly="" name="numero" placeholder="N° del documento" id="numero" title="N° del documento" value="<?php echo $this->_requerimiento[0]['numero'] ?>">							
+									</div>
+							</div>
+
+	
+
+							<div class="form-group">	
+								<label class="control-label col-sm-4">Modulo del sistema</label>
+									<div class="col-sm-3">
+										<select class="form-control" name="Modulo" disabled="" id="Modulo">
+										<option><?php echo $this->_requerimiento[0]['descripcion_sistema'] ?></option>
+										</select>
+									</div>									
+							</div>	
+
+							<div class="form-group">
+								<label class="control-label col-sm-4">Status</label>
+									<div class="col-sm-3">
+										<select class="form-control" disabled="" name="status" id="status">
+											<option><?php echo $this->_requerimiento[0]['status'] ?></option>										
+										</select>
+									</div>
+							</div>							
+
+							<div class="form-group">
+								<label class="control-label col-sm-4">Descripción</label>
+									<div class="col-sm-5">
+
+										<textarea type="text" class="form-control" name="descripcion" readonly="" placeholder="Descripción del Probrema" id="descripcion" class=estilotextarea1 cols="60" rows="4" ><?php echo $this->_requerimiento[0]['descripcion'] ?></textarea> 
+				
+									</div>
+							</div>
+
+							<div class="form-group">
+								<label class="control-label col-sm-4">Solución</label>
+									<div class="col-sm-5">
+											<textarea type="text" class="form-control" name="solucion" readonly="" placeholder="Solución del Problema" id="solucion" class=estilotextarea2 cols="60" rows="4"><?php echo $this->_requerimiento[0]['solucion'] ?></textarea> 					
+									</div>
+
+							</div>
+
+							<div class="form-group">
+								<label class="control-label col-sm-4">Observación</label>
+									<div class="col-sm-5">
+											<textarea type="text" class="form-control" name="observaciones" readonly="" placeholder="observaciones del Problema" id="observaciones" class=estilotextarea2 cols="60" rows="4" ><?php echo $this->_requerimiento[0]['observaciones'] ?></textarea>					
+									</div>
+
+							</div>
+	 		 		
+		 			</div>
+		 		</div>
+		 		
+		 	
+		 		</form>	
+		 	</div>
+		</div>
+	</header>
+</body>
+</html>

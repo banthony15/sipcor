@@ -1,0 +1,87 @@
+<ol class="breadcrumb">
+    <li>
+        <i class="fa fa-home"></i>
+
+        <?php  if (isset($_view_params['menu'])):?>
+        <?php  for ($i= 0; $i < count($_view_params['menu']); $i++):?>         
+        <a href="<?php  echo $_view_params['menu'][$i]['link'];?>"><?php  echo $_view_params['menu'][$i]['title']; ?></a>
+
+        <?php  endfor;?>
+        <?php  endif;?> 
+
+    </li>
+    <li class="active">
+        <i class="fa fa-user"></i> Gestion de Usuarios
+    </li>
+
+    <li class="active">
+        <i class="fa fa-edit"></i> Requerimientos General
+    </li>
+</ol>
+
+     <div id="page-wrapper">
+		<div class="container">
+			<div class="col-md-12 col-md-offset-0" >
+	 		    <div class= "panel panel-primary">
+    	 			<div class="panel-body">
+    					<div class="dataTable_wrapper">
+    	 					<form action="<?php  echo BASE_URL;?>requerimiento/readrequerimiento" method="post">
+    	 						<table class="table table-striped table-bordered table-hover" id="dataTables">
+                                        <thead>
+                                            <tr>
+                                            	<th>Analista </th>
+                                                <th>fecha del requerimiento</th>                                                   
+                                                <th>fecha de la solicitud</th> 
+                                                <th>tipo de solicitud</th>    
+                                                <th>tipo de requerimiento</th>           
+                                                <th>status</th>
+                                                <th>Acciones</th>
+                           
+
+                                            </tr>
+                                        </thead>                                 
+                                        <tbody>
+                                <?php foreach ($this->_lista as $requerimiento): ?>
+                                    <tr class="info">    
+
+                                        <td align="center">
+                                        <?php echo $requerimiento['nombre_1'];?>
+                                        <?php echo $requerimiento['apellido_1'];?>
+                                        </td>
+                                        <td align="center"><?php echo $requerimiento['fecha'];?></td>                                                              
+                                        <td align="center"><?php echo $requerimiento['fecha_documento'];?></td>
+                                        <td align="center"><?php echo $requerimiento['tipo de solicitud'];?></td>   
+                                        <td align="center"><?php echo $requerimiento['tipo de requerimiento'];?></td>
+                                        <td align="center"><?php echo $requerimiento['status'];?></td>
+                                        <td align="center">
+                                            
+
+                                        <a href="<?php echo BASE_URL."Requerimientos/viewrequerimiento/". $requerimiento['id'] ; ?>">
+                                            <span title="Ver Requerimiento" class="glyphicon glyphicon-eye-open"></span>                                         
+                                        </a>
+                                            &nbsp; 
+                                        <a href="<?php echo BASE_URL."Requerimientos/updaterequerimiento/". $requerimiento['id'] ; ?>">
+                                            <span title="Editar Requerimiento" class="glyphicon glyphicon-edit"></span>                                         
+                                        </a>
+                                            &nbsp; 
+                                        <a href="<?php ECHO BASE_URL."requerimientos/pdf/". $requerimiento['id'] ; ?>">
+                                            <span title="Descargar en PDF" class="glyphicon glyphicon-save"></span>                                         
+                                        </a>                                     
+                                            
+                                        </td>
+                                       
+
+                                    </tr>
+                                <?php endforeach ?>
+                                        </tbody>
+                                </table>
+    	 		 			</form>
+    	 				  </div>
+                        </div>
+    	 			</div>
+    	 		</div>
+    	 	</div>
+    	</div>	 	
+
+    <br><br>
+    <br><br>

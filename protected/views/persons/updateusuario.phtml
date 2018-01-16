@@ -1,0 +1,87 @@
+<ol class="breadcrumb">
+    <li>
+        <i class="fa fa-home"></i>
+
+        <?php  if (isset($_view_params['menu'])):?>
+        <?php  for ($i= 0; $i < count($_view_params['menu']); $i++):?>         
+        <a href="<?php  echo $_view_params['menu'][$i]['link'];?>"><?php  echo $_view_params['menu'][$i]['title']; ?></a>
+
+        <?php  endfor;?>
+        <?php  endif;?> 
+
+    </li>
+    <li class="active">
+        <i class="fa fa-user"></i> Gestion de Usuarios
+    </li>
+
+     <li class="active">
+        <i class="fa fa-user"></i>
+
+        <?php  if (isset($_view_params['menu3'])):?>
+        <?php  for ($i= 0; $i < count($_view_params['menu3']); $i++):?>         
+        <a href="<?php  echo $_view_params['menu3'][$i]['link'];?>"><?php  echo $_view_params['menu3'][$i]['title']; ?></a>
+
+        <?php  endfor;?>
+        <?php  endif;?> 
+
+    </li>
+
+    <li class="active">
+        <i class="fa fa-edit"></i> Actualizar Usuario
+    </li>
+</ol>
+<br><br>
+
+
+<body>
+     <header class="header">
+		<div class="row">
+		    <div class="col-md-8 col-sm-offset-2" >
+		    	<form  id="" class="form-horizontal" action="<?php  echo BASE_URL;?>persons/updateusuario"	method="post">
+
+    
+
+		 		<div class= "panel panel-primary" >
+		 			<div class= "panel-heading" >
+		 				<h3 class= "panel-title fa fa-users">Usuario</h3>
+		 			</div>
+		 					
+		 			<div class="panel-body">
+						<div class="form-group">
+						<input type="hidden" name="id"  value="<?php echo $this->_usuario[0]['id'] ?>" >
+							<label class="control-label col-sm-5">usuario</label>
+								<div class="col-sm-3">
+										<input type="text" readonly="" class="form-control" name="usuario" placeholder="Ingrese aca su usuario"  title="usuario" value="<?php echo $this->_usuario[0]['usuario'] ?>">
+								</div>
+						        	<div class="col-sm-2" class="" id="div">
+						            	<strong><p id="nota"></p></strong>
+						        	</div>
+						</div>
+
+
+
+						<div class="form-group">
+							<label class="control-label col-sm-5">Perfil</label>
+
+								<div class="col-sm-3">
+									<select  class="form-control " name="perfil" id="perfil" class="">
+									<option><?php echo $this->_usuario[0]['perfil']?></option>
+									</select>
+								</div>
+						</div>
+
+
+						<div class="col-sm-offset-6">
+							<input type="submit" value="Registrar" class="btn btn-primary" onclick=" return confirm('¿Estas seguro que desea realizar este cambio?');">
+						</div>					
+
+		 			</div>
+		 		</div>		 		
+			 </form>
+			</div>
+		</div>
+	</header>
+</body>
+<br><br>
+<br><br>
+<br><br>

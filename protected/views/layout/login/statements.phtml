@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Sistema para el registro y control de requerimientos</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+        <link rel="stylesheet" href="<?php echo PUBLIC_URL;?>assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="<?php echo PUBLIC_URL;?>assets/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="<?php echo PUBLIC_URL;?>assets/css/form-elements.css">
+        <link rel="stylesheet" href="<?php echo PUBLIC_URL;?>assets/css/style.css">
+        <link rel="shortcut icon" href="<?php echo PUBLIC_URL;?>assets/ico/favicon.png">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo PUBLIC_URL;?>assets/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo PUBLIC_URL;?>assets/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo PUBLIC_URL;?>assets/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="<?php echo PUBLIC_URL;?>assets/ico/apple-touch-icon-57-precomposed.png">
+
+    </head>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-md-offset-1">
+            <div class="header1">
+                <img src="<?php echo PUBLIC_URL; ?>img/mppe.jpg" class="img-responsive" alt="Responsive image" align="left">
+                <img src="<?php echo PUBLIC_URL; ?>img/logo_200.fw.png" class="img-responsive" alt="Responsive image" align="left">            
+
+             </div>
+        </div>
+    </div>
+</div>
+
+<div class="item active" style="background-image: url(<?php echo PUBLIC_URL;?>assets/img/backgrounds/1.jpg)">
+
+        <div class="top-content">          
+            <div class="container">
+                <img id="logo" src="<?php echo PUBLIC_URL; ?>img/avatar6.png" height="150"> 
+                    <div class="row">
+                            <div class="col-sm-8 col-sm-offset-2 text">
+                            <h4><strong>Sistema Para el Registro y Control</strong></h4>
+                            <h4><strong>de Requerimientos</strong><h4>
+                                <div class="description">
+                                    <p>                                       
+                                            SISRCOR
+                                    </p>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4 col-sm-offset-4 form-box">
+                            <div class="form-top">
+                                <div class="form-top-left">
+                                    <p>Por favor inicie sesion para ingresar al Sistema</p>
+                                </div>
+                                <div class="form-top-right">
+                                    <i class="fa fa-lock"></i>
+                                </div>
+                            </div>
+                            <div class="form-bottom">
+                                <form role="form" action='<?php echo BASE_URL . 'login/signIn'?>' method="post" class="login-form">
+                                    <body>
+                                         <?php if (isset($this->_error)) echo $this->_error; ?>
+                                    <div class="form-group">
+                                        <label class="sr-only" for="form-username">Username</label>
+                                        <input type="text" name="user_name" placeholder="Usuario..." class="form-username form-control" id="form-username">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="sr-only" for="form-password">Password</label>
+                                        <input type="password" name="password" placeholder="Clave..." class="form-password form-control" id="form-password">
+                                    </div>
+                                    <button type="submit" class="btn">Ingresar</button>
+                                    <label><a href="<?php echo $_view_params['recuperar']['href'];?>">¿Olvido su clave? </a></label>
+                                    <br>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+            </div>           
+        </div>
+<br>       
+
+        <script src="<?php echo PUBLIC_URL;?>assets/js/jquery-1.11.1.min.js"></script>
+        <script src="<?php echo PUBLIC_URL;?>assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="<?php echo PUBLIC_URL;?>assets/js/jquery.backstretch.min.js"></script>
+        <script src="<?php echo PUBLIC_URL;?>assets/js/scripts.js"></script>
+        
+        <!--[if lt IE 10]>
+            <script src="assets/js/placeholder.js"></script>
+        <![endif]-->
+
+    </body>
+
+</html>

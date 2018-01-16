@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 col-md-offset-1">
+			<div class="header1">
+				<img src="<?php echo PUBLIC_URL; ?>img/mppe.jpg" class="img-responsive" alt="Responsive image" align="left">
+				<img src="<?php echo PUBLIC_URL; ?>img/logo_200.fw.png" class="img-responsive" alt="Responsive image" align="left">
+             </div>
+        </div>
+    </div>
+ </div>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Sistema para el registro y control de requerimientos | Dashboard</title>
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+
+        <link href="<?php echo PUBLIC_URL; ?>css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo PUBLIC_URL; ?>css/dataTables.bootstrap.css" rel="stylesheet">
+    	<link href="<?php echo PUBLIC_URL; ?>css/responsive.dataTables.scss" rel="stylesheet">
+    	<link href="<?php echo PUBLIC_URL; ?>css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo PUBLIC_URL; ?>css/ionicons.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo PUBLIC_URL; ?>css/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo PUBLIC_URL; ?>css/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo PUBLIC_URL; ?>css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo PUBLIC_URL; ?>css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo PUBLIC_URL; ?>css/AdminLTE.css" rel="stylesheet" type="text/css" />        
+    	<link href="<?php echo PUBLIC_URL;?>css/main.css" rel="stylesheet"> 
+		<link rel="stylesheet" href="<?php echo PUBLIC_URL;?>css/jquery-ui.css" />
+
+
+		
+    </head>
+
+
+     <body class="skin-blue" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+        <header class="header">
+		
+            <nav class="navbar navbar-static-top" role="navigation">
+
+				<div class= "container ">
+
+					<div class="navbar-header">
+						<a class= "navbar-brand"  href="#"><?php  echo APP_NAME; ?> </a>
+					</div>
+
+				
+            <div class="navbar-left">
+
+				<ul class="nav navbar-nav">
+					
+					<?php  if (isset($_view_params['menu'])):?>
+					<?php  for ($i= 0; $i < count($_view_params['menu']); $i++):?>		
+					<?php 		if( $this-> _controller ==$_view_params['menu'][$i]['id']):	?>		
+								<li class="active"><a href="<?php  echo $_view_params['menu'][$i]['link'];?>"><?php  echo $_view_params['menu'][$i]['title']; ?></a></li>
+					<?php  else: ?>
+								<li><a href="<?php echo $_view_params['menu'][$i]['link'] ;?>"><?php  echo $_view_params['menu'][$i]['title']; ?></a></li>
+					<?php  endif; ?>
+					<?php  endfor;?>
+					<?php  endif;?>
+
+					<li class="dropdown">
+					<?php  if(session::get('level')==('Administrador')):?>						
+						<a href="#" class="dropdown-toggle" 
+							data-toggle="dropdown">Gestion de usuarios<b class="caret"></b></a>							
+						<ul class="dropdown-menu">
+
+						<li>
+							<?php  if (isset($_view_params['menu2'])):?>
+							<?php  for ($i= 0; $i < count($_view_params['menu2']); $i++):?>			
+							<li ><a class="fa fa-user"  href="<?php  echo $_view_params['menu2'][$i]['link'];?>"> <?php  echo $_view_params['menu2'][$i]['title']; ?></a></li>		
+							<?php  endfor;?>
+							<?php  endif;?>	
+						</li>
+
+						<li>
+							<?php  if (isset($_view_params['menu3'])):?>
+							<?php  for ($i= 0; $i < count($_view_params['menu3']); $i++):?>			
+							<li ><a class="fa fa-user"  href="<?php  echo $_view_params['menu3'][$i]['link'];?>"> <?php  echo $_view_params['menu3'][$i]['title']; ?></a></li>			
+							<?php  endfor;?>
+							<?php  endif;?>	
+						</li>
+						</ul>
+					<?php  endif;?>							
+					</li>
+
+                    <li class="dropdown">
+                    <?php  if(session::get('level')==('Administrador')):?>
+                        <a href="#" class="dropdown-toggle" 
+                            data-toggle="dropdown">Requerimiento<b class="caret"></b></a>                            
+                            <ul class="dropdown-menu">
+                        <li>
+	                        <?php  if (isset($_view_params['menu4'])):?>
+	                        <?php  for ($i= 0; $i < count($_view_params['menu4']); $i++):?>         
+	                        <li ><a class="fa fa-file-text" href="<?php  echo $_view_params['menu4'][$i]['link'];?>"> <?php  echo $_view_params['menu4'][$i]['title']; ?></a></li>        
+	                        <?php  endfor;?>
+	                        <?php  endif;?> 
+                        </li>
+
+                        <li>
+	                        <?php  if (isset($_view_params['menu5'])):?>
+	                        <?php  for ($i= 0; $i < count($_view_params['menu5']); $i++):?>         
+	                        <li ><a class="fa fa-search" href="<?php  echo $_view_params['menu5'][$i]['link'];?>"> <?php  echo $_view_params['menu5'][$i]['title']; ?></a></li>        
+	                        <?php  endfor;?>
+	                        <?php  endif;?> 
+                        </li>
+
+                        <li>
+	                        
+	                        <?php  if (isset($_view_params['menu6'])):?>
+	                        <?php  for ($i= 0; $i < count($_view_params['menu6']); $i++):?>         
+	                        <li ><a class="fa fa-search-plus" href="<?php  echo $_view_params['menu6'][$i]['link'];?>"> <?php  echo $_view_params['menu6'][$i]['title']; ?></a></li>        
+	                        <?php  endfor;?>
+	                        <?php  endif;?>
+	                       
+                        </li>
+                                               
+
+                            </ul>
+                    <?php  endif;?> 
+                    </li>
+
+                    <li class="dropdown">
+                    <?php  if(session::get('level')==('Super Usuario')):?>
+                        <a href="#" class="dropdown-toggle" 
+                            data-toggle="dropdown">Requerimiento<b class="caret"></b></a>                            
+                            <ul class="dropdown-menu">
+                        <li>
+	                        <?php  if (isset($_view_params['menu4'])):?>
+	                        <?php  for ($i= 0; $i < count($_view_params['menu4']); $i++):?>         
+	                        <li ><a class="fa fa-file-text" href="<?php  echo $_view_params['menu4'][$i]['link'];?>"> <?php  echo $_view_params['menu4'][$i]['title']; ?></a></li>        
+	                        <?php  endfor;?>
+	                        <?php  endif;?> 
+                        </li>
+
+                        <li>
+	                        <?php  if (isset($_view_params['menu5'])):?>
+	                        <?php  for ($i= 0; $i < count($_view_params['menu5']); $i++):?>         
+	                        <li ><a class="fa fa-search" href="<?php  echo $_view_params['menu5'][$i]['link'];?>"> <?php  echo $_view_params['menu5'][$i]['title']; ?></a></li>        
+	                        <?php  endfor;?>
+	                        <?php  endif;?> 
+                        </li>
+
+                        <li>
+	                        
+	                        <?php  if (isset($_view_params['menu6'])):?>
+	                        <?php  for ($i= 0; $i < count($_view_params['menu6']); $i++):?>         
+	                        <li ><a class="fa fa-search-plus" href="<?php  echo $_view_params['menu6'][$i]['link'];?>"> <?php  echo $_view_params['menu6'][$i]['title']; ?></a></li>        
+	                        <?php  endfor;?>
+	                        <?php  endif;?>
+	                       
+                        </li>
+                                                
+
+                            </ul>
+                    <?php  endif;?> 
+                    </li>
+
+                    <li class="dropdown">
+                    <?php  if(session::get('level')==('Usuario')):?>
+                        <a href="#" class="dropdown-toggle" 
+                            data-toggle="dropdown">Requerimiento<b class="caret"></b></a>                            
+                            <ul class="dropdown-menu">
+                        <li>
+	                        <?php  if (isset($_view_params['menu4'])):?>
+	                        <?php  for ($i= 0; $i < count($_view_params['menu4']); $i++):?>         
+	                        <li ><a class="fa fa-file-text" href="<?php  echo $_view_params['menu4'][$i]['link'];?>"><?php  echo $_view_params['menu4'][$i]['title']; ?></a></li>        
+	                        <?php  endfor;?>
+	                        <?php  endif;?> 
+                        </li>
+
+                        <li>
+	                        <?php  if (isset($_view_params['menu5'])):?>
+	                        <?php  for ($i= 0; $i < count($_view_params['menu5']); $i++):?>         
+	                        <li ><a class="fa fa-search" href="<?php  echo $_view_params['menu5'][$i]['link'];?>"><?php  echo $_view_params['menu5'][$i]['title']; ?></a></li>        
+	                        <?php  endfor;?>
+	                        <?php  endif;?> 
+                        </li>                                            
+
+                            </ul>
+                    <?php  endif;?> 
+                    </li>
+
+                    <li class="dropdown">
+                    <?php  if(session::get('level')==('Administrador')):?>
+                    	<a href="#" class="dropdown-toggle" 
+                            data-toggle="dropdown">Reportes<b class="caret"></b></a>
+                       		 <ul class="dropdown-menu">
+                        <li>
+	                        <?php  if (isset($_view_params['menu7'])):?>
+	                        <?php  for ($i= 0; $i < count($_view_params['menu7']); $i++):?>         
+	                        <li ><a class="fa fa-list" href="<?php  echo $_view_params['menu7'][$i]['link'];?>"> <?php  echo $_view_params['menu7'][$i]['title']; ?></a></li>        
+	                        <?php  endfor;?>
+	                        <?php  endif;?>
+	                    </li>
+                        <li>
+	                        <?php  if (isset($_view_params['menu8'])):?>
+	                        <?php  for ($i= 0; $i < count($_view_params['menu8']); $i++):?>         
+	                        <li ><a class="fa fa-list" href="<?php  echo $_view_params['menu8'][$i]['link'];?>"> <?php  echo $_view_params['menu8'][$i]['title']; ?></a></li>        
+	                        <?php  endfor;?>
+	                        <?php  endif;?>
+	                    </li>
+	                <?php  endif;?>	
+	                </li>
+
+                    <li class="dropdown">
+                    <?php  if(session::get('level')==('Super Usuario')):?>
+                    	<a href="#" class="dropdown-toggle" 
+                            data-toggle="dropdown">Reportes<b class="caret"></b></a>
+                       		 <ul class="dropdown-menu">
+                        <li>
+	                        <?php  if (isset($_view_params['menu7'])):?>
+	                        <?php  for ($i= 0; $i < count($_view_params['menu7']); $i++):?>         
+	                        <li ><a class="fa fa-list" href="<?php  echo $_view_params['menu7'][$i]['link'];?>"> <?php  echo $_view_params['menu7'][$i]['title']; ?></a></li>        
+	                        <?php  endfor;?>
+	                        <?php  endif;?>
+	                    </li>
+                        <li>
+	                        <?php  if (isset($_view_params['menu8'])):?>
+	                        <?php  for ($i= 0; $i < count($_view_params['menu8']); $i++):?>         
+	                        <li ><a class="fa fa-list" href="<?php  echo $_view_params['menu8'][$i]['link'];?>"> <?php  echo $_view_params['menu8'][$i]['title']; ?></a></li>        
+	                        <?php  endfor;?>
+	                        <?php  endif;?>
+	                    </li>
+	                <?php  endif;?>	
+	                </li>  	                                       
+
+                    <li class="dropdown">
+                    <?php  if(session::get('level')==('Usuario')):?>
+                    	<a href="#" class="dropdown-toggle" 
+                            data-toggle="dropdown">Reportes<b class="caret"></b></a>
+                       		 <ul class="dropdown-menu">
+                        <li>
+	                        <?php  if (isset($_view_params['menu7'])):?>
+	                        <?php  for ($i= 0; $i < count($_view_params['menu7']); $i++):?>         
+	                        <li ><a class="fa fa-list" href="<?php  echo $_view_params['menu7'][$i]['link'];?>"> <?php  echo $_view_params['menu7'][$i]['title']; ?></a></li>        
+	                        <?php  endfor;?>
+	                        <?php  endif;?>
+	                    </li>
+                        <li>
+	                        <?php  if (isset($_view_params['menu8'])):?>
+	                        <?php  for ($i= 0; $i < count($_view_params['menu8']); $i++):?>         
+	                        <li ><a class="fa fa-list" href="<?php  echo $_view_params['menu8'][$i]['link'];?>"> <?php  echo $_view_params['menu8'][$i]['title']; ?></a></li>        
+	                        <?php  endfor;?>
+	                        <?php  endif;?>
+	                    </li>
+	                <?php  endif;?>	
+	                </li>                                         
+
+					
+					</ul>  
+				</div> 
+
+                <div class="navbar-right">						
+						<ul class="nav navbar-nav pull-right">
+									<li class="dropdown user user-menu">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+	                               <i class="glyphicon glyphicon-user"></i>
+								        	<?php echo  utf8_decode(Session::get('user') );?>
+								        	<span class="caret"></span>
+								    	</a>
+
+								    	
+	                            <ul class="dropdown-menu">
+                                <li class="user-header bg-light-blue">
+                                    <img src="<?php echo PUBLIC_URL; ?>img/avatar6.png" class="img-circle" alt="User Image" />
+                                    <p>
+                                        Sistema para el registro y control de Requerimientos
+                                        <small>Bienvenido al Sistema</small>
+                                    </p>
+    
+                                </li>	                            			
+							
+									        <li class="divider"></li>
+									        <li>
+						                        <?php  if (isset($_view_params['menu9'])):?>
+						                        <?php  for ($i= 0; $i < count($_view_params['menu9']); $i++):?>         
+						                        <li ><a class="fa fa-user" href="<?php  echo $_view_params['menu9'][$i]['link'];?>"> <?php  echo $_view_params['menu9'][$i]['title']; ?></a></li>        
+						                        <?php  endfor;?>
+						                        <?php  endif;?>
+									        </li>
+									        <li>
+									        	<a href="<?php echo $_view_params['login']['href'];?>">
+									        		<i class="fa <?php echo $_view_params['login']['icon'];?>"></i> 
+									        		<?php echo $_view_params['login']['name']; ?>
+									        	</a>
+									        </li>									        									        
+								    	</ul>
+								    </li>
+
+							</ul>
+						</div>
+					</div>
+					
+			</nav>
+		</header>
+		<div class= "container ">
+    </body>	
+
+
+							

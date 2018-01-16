@@ -1,0 +1,32 @@
+
+#footer {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  color: #fff;
+  background: #0073b7;
+}
+
+#footer a {
+  color: #444444;
+}
+
+#footer a:hover {
+  color: #8555C9;
+}
+
+#footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#footer ul > li {
+  display: inline-block;
+  margin-left: 15px;
+}
+
+
+
+
+
+
