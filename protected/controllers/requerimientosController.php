@@ -11,9 +11,9 @@
 			$this->_reque = $this->loadModel('requerimientos');
 			
 		//Objeto donde almacenamos todas las funciones de PersonsModel.php
+			$this->_view->setJS(array('js/requerimientos/requerimientos'));
 			$this->_view->setJS(array('js/val'));
 			$this->_view->setJS(array('js/valreque'));
-			$this->_view->setJS(array('js/requerimientos/requerimientos'));
 		
 			$this->_sidebar_menu =array(
 					array(

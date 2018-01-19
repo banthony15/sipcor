@@ -41,7 +41,7 @@ $('#personuser').bootstrapValidator({
 				 between: { //rango entre 1 y 40 millones
 				 				min:1,
 				 			   	max: 900000,
-				 	 message: 'El Rango de la Cedula es incorrecto'
+				 	 message: 'El Rango de la CREDENCIAL es incorrecto'
 				 	 	
 				 }
 			 } 
