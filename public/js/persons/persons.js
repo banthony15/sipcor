@@ -13,3 +13,7 @@ $('#areaa').change(function(event) {
 $('#areab').change(function(event) {	
 	LoadDespacho('areac',$('#areab').val());
 });
+
+$(document).ready(function() {
+    $('.js-example-basic-multiple').select2();
+});

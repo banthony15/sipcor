@@ -252,7 +252,7 @@
 					
 					</ul>  
 				</div> 
-
+				<?php  if(session::get('level')==('Administrador')):?>
                 <div class="navbar-right">						
 						<ul class="nav navbar-nav pull-right">
 									<li class="dropdown user user-menu">
@@ -292,6 +292,90 @@
 
 							</ul>
 						</div>
+ <?php  endif;?>
+ 			<?php  if(session::get('level')==('Super Usuario')):?>
+                <div class="navbar-right">						
+						<ul class="nav navbar-nav pull-right">
+									<li class="dropdown user user-menu">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+	                               <i class="glyphicon glyphicon-user"></i>
+								        	<?php echo  utf8_decode(Session::get('user') );?>
+								        	<span class="caret"></span>
+								    	</a>
+
+								    	
+	                            <ul class="dropdown-menu">
+                                <li class="user-header bg-light-blue">
+                                    <img src="<?php echo PUBLIC_URL; ?>img/avatar6.png" class="img-circle" alt="User Image" />
+                                    <p>
+                                        Sistema para el registro y control de Requerimientos
+                                        <small>Bienvenido al Sistema</small>
+                                    </p>
+    
+                                </li>	                            			
+							
+									        <li class="divider"></li>
+									        <li>
+						                        <?php  if (isset($_view_params['menu9'])):?>
+						                        <?php  for ($i= 0; $i < count($_view_params['menu9']); $i++):?>         
+						                        <li ><a class="fa fa-user" href="<?php  echo $_view_params['menu9'][$i]['link'];?>"> <?php  echo $_view_params['menu9'][$i]['title']; ?></a></li>        
+						                        <?php  endfor;?>
+						                        <?php  endif;?>
+									        </li>
+									        <li>
+									        	<a href="<?php echo $_view_params['login']['href'];?>">
+									        		<i class="fa <?php echo $_view_params['login']['icon'];?>"></i> 
+									        		<?php echo $_view_params['login']['name']; ?>
+									        	</a>
+									        </li>									        									        
+								    	</ul>
+								    </li>
+
+							</ul>
+						</div>
+ <?php  endif;?>
+ 			<?php  if(session::get('level')==('Usuario')):?>
+                <div class="navbar-right">						
+						<ul class="nav navbar-nav pull-right">
+									<li class="dropdown user user-menu">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+	                               <i class="glyphicon glyphicon-user"></i>
+								        	<?php echo  utf8_decode(Session::get('user') );?>
+								        	<span class="caret"></span>
+								    	</a>
+
+								    	
+	                            <ul class="dropdown-menu">
+                                <li class="user-header bg-light-blue">
+                                    <img src="<?php echo PUBLIC_URL; ?>img/avatar6.png" class="img-circle" alt="User Image" />
+                                    <p>
+                                        Sistema para el registro y control de Requerimientos
+                                        <small>Bienvenido al Sistema</small>
+                                    </p>
+    
+                                </li>	                            			
+							
+									        <li class="divider"></li>
+									        <li>
+						                        <?php  if (isset($_view_params['menu9'])):?>
+						                        <?php  for ($i= 0; $i < count($_view_params['menu9']); $i++):?>         
+						                        <li ><a class="fa fa-user" href="<?php  echo $_view_params['menu9'][$i]['link'];?>"> <?php  echo $_view_params['menu9'][$i]['title']; ?></a></li>        
+						                        <?php  endfor;?>
+						                        <?php  endif;?>
+									        </li>
+									        <li>
+									        	<a href="<?php echo $_view_params['login']['href'];?>">
+									        		<i class="fa <?php echo $_view_params['login']['icon'];?>"></i> 
+									        		<?php echo $_view_params['login']['name']; ?>
+									        	</a>
+									        </li>									        									        
+								    	</ul>
+								    </li>
+
+							</ul>
+						</div>
+ <?php  endif;?>		
+
 					</div>
 					
 			</nav>

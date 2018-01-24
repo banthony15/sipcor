@@ -13,9 +13,10 @@
 
 		function totalanalista(){
 
-			$this->_query= "SELECT requerimiento_analista.id, credencial, nombre_1, apellido_1, COUNT(persona_id) as total from requerimiento_analista
+			$this->_query= "SELECT requerimiento_analista.id,  persona.credencial, persona.nombre_1, persona.apellido_1, year(fecha), month(fecha), COUNT(fecha) as total from requerimiento_analista
 							inner join persona on persona.id = requerimiento_analista.persona_id
-							GROUP BY credencial, nombre_1,apellido_1";
+                            inner join requerimiento on requerimiento.id = requerimiento_analista.requerimiento_id
+                            GROUP BY  fecha ORDER BY COUNT(fecha) DESC";
 
 			return $this->Read();
 		}

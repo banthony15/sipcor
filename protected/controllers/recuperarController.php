@@ -53,14 +53,22 @@
 				if($respuesta==$lista[0]['respuesta'])
 				{
 					$this->_recuperar->update($usuario,$clave);
-					$this->_view->mensaje="Se ha cambiado con exito su clave";
-					$this->_view->render('mensaje','recuperar','');
+					$this->_view->_error = Controller::getBoxAlert(
+							'Se ha cambiado con exito su contraseña', 
+							'',
+							'success'
+					);
+					$this->_view->render('recu','','recuperar');
 				}
 			}
 			else
 			{
-				$this->_view->error="Error no se pudo recuperar su clave, la pregunta o respuesta son invalidas";
-				$this->_view->render('error','recuperar','');
+				$this->_view->_error = Controller::getBoxAlert(
+							'No se pudo reestablecer la contraseña, la pregunta o respuesta de seguridad no son validos', 
+							'',
+							'danger'
+				);
+				$this->_view->render('recu','','recuperar');
 			}
 
 			

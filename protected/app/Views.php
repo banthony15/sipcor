@@ -174,6 +174,12 @@
 						//include_once $view_route;
 						//include_once ROOT . 'protected' . DS . 'views' . DS . 'layout/login' . DS . 'footer.phtml';
 					break;
+
+					case 'recu':
+						include_once ROOT . 'protected' . DS . 'views' . DS . 'layout/recu' . DS . 'statements.phtml';
+						//include_once $view_route;
+						//include_once ROOT . 'protected' . DS . 'views' . DS . 'layout/login' . DS . 'footer.phtml';
+					break;					
 					
 					case 'error': //error view
 						include_once ROOT . 'protected' . DS . 'views' . DS . 'layout/error' . DS . 'statements.phtml';
@@ -190,6 +196,7 @@
 						include_once ROOT . 'protected' . DS . 'views' . DS . 'layout' . DS . 'footer.phtml';
 					break;
 				}
+
 				
 			}else{
 				

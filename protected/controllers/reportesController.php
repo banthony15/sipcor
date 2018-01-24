@@ -58,29 +58,33 @@
 			$celda->Cell(30,10,'REQUERIMIENTOS',2,0,'C');
 			$celda->Line(95.5, 57 , 118, 57);
 			$celda->Ln(30);
-			$celda->Cell(35);			
-			$celda->Cell(120,5,'Total de Requerimientos por Analistas:',1,0,'C');			
+			$celda->Cell(8);			
+			$celda->Cell(180,5,'Total de Requerimientos por Analistas:',1,0,'C');			
 			$celda->Ln();
-			$celda->Cell(35);			
+			$celda->Cell(8);			
 			$celda->Cell(30, 5, "Credencial:",1,0,'C');
 			$celda->Cell(30, 5, "Nombre:",1,0,'C');
 			$celda->Cell(30, 5, "Apellido:",1,0,'C');
+			$celda->Cell(30, 5, "Periodo:",1,0,'C');
+			$celda->Cell(30, 5, "Mes:",1,0,'C');
 			$celda->Cell(30, 5, "Requerimientos:",1,0,'C');
 			$celda->Ln();
 			for($i=0;$i<count($requerimiento);$i++)
 			{
 				$v=$i*0;
-				$celda->Cell(35);
+				$celda->Cell(8);
 				$celda->Cell($d,6,$requerimiento[$i][1],1,0,'C');
 				$celda->Cell($d,6,$requerimiento[$i][2],1,0,'C');
 				$celda->Cell($d,6,$requerimiento[$i][3],1,0,'C');
 				$celda->Cell($d,6,$requerimiento[$i][4],1,0,'C');
+				$celda->Cell($d,6,$requerimiento[$i][5],1,0,'C');
+				$celda->Cell($d,6,$requerimiento[$i][6],1,0,'C');
 
 				$celda->Ln();
 			}
 			$celda->Ln(0);
-			$celda->Cell(35);			
-			$celda->Cell(90,5, "total:",1,0,'C');			
+			$celda->Cell(8);			
+			$celda->Cell(150,5, "total:",1,0,'C');			
 			$celda->Cell($d,5,$total[0][1],1,0,'C');
 
 			$celda->output();
