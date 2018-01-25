@@ -25,10 +25,10 @@ try {
 		$localid = $this->_db->lastinsertid('telefono');
 
 
-		$this->_query="INSERT INTO `requerimiento`(`fecha`, `hora`, `tipo_de_solicitud_id`, `numero`, 
+		$this->_query="INSERT INTO `requerimiento`(`fecha`, `tipo_de_solicitud_id`, `numero`, 
 		`fecha_documento`, `tipo_de_requerimiento_id`, `status_id`, `descripcion`, `solucion`, `observaciones`, `Modulo_id`) VALUES
 
-		(:fecha, :hora, :tipo_de_solicitud, :numero, :fecha_documento, :tipo_de_requerimiento, :status, :descripcion, :solucion, :observaciones, :Modulo)";
+		(:fecha, :tipo_de_solicitud, :numero, :fecha_documento, :tipo_de_requerimiento, :status, :descripcion, :solucion, :observaciones, :Modulo)";
 		$this->_db->prepare($this->_query)->execute($requerimiento);
 		$requerimientoid = $this->_db->lastinsertid('requerimiento');
 
@@ -74,10 +74,10 @@ try {
 		$this->_db->prepare($this->_query)->execute($telefono);
 		$localid = $this->_db->lastinsertid('telefono');
 		
-		$this->_query="INSERT INTO `requerimiento`(`fecha`, `hora`, `tipo_de_solicitud_id`, `numero`, 
+		$this->_query="INSERT INTO `requerimiento`(`fecha`, `tipo_de_solicitud_id`, `numero`, 
 		`fecha_documento`, `tipo_de_requerimiento_id`, `status_id`, `descripcion`, `solucion`, `observaciones`, `Modulo_id`) VALUES
 
-			(:fecha, :hora, :tipo_de_solicitud, :numero, :fecha_documento, 
+			(:fecha, :tipo_de_solicitud, :numero, :fecha_documento, 
 			:tipo_de_requerimiento, :status, :descripcion, :solucion, :observaciones, :Modulo)";
 		$this->_db->prepare($this->_query)->execute($requerimiento);
 		$requerimientoid = $this->_db->lastinsertid('requerimiento');
@@ -156,7 +156,7 @@ try {
 
 		function getRequerimiento($id){
 
-		$this->_query="SELECT requerimiento.id, ref_cod.referencia as 'cod_area', num_cel, cedula, credencial, nombre_1, nombre_2, apellido_1, apellido_2, correo, cargo, ref_jerarquia.referencia as 'jerarquia', descripcion_depen, fecha, hora, ref_solicitud.referencia as 'tipo de solicitud', numero, fecha_documento, ref_requerimiento.referencia as 'tipo de requerimiento', ref_status.referencia as 'status', descripcion, solucion, observaciones, descripcion_sistema, 'sistema' FROM requerimiento
+		$this->_query="SELECT requerimiento.id, ref_cod.referencia as 'cod_area', num_cel, cedula, credencial, nombre_1, nombre_2, apellido_1, apellido_2, correo, cargo, ref_jerarquia.referencia as 'jerarquia', descripcion_depen, fecha, time(hora), ref_solicitud.referencia as 'tipo de solicitud', numero, fecha_documento, ref_requerimiento.referencia as 'tipo de requerimiento', ref_status.referencia as 'status', descripcion, solucion, observaciones, descripcion_sistema, 'sistema' FROM requerimiento
 
  			inner join referencia as ref_solicitud on ref_solicitud.id = tipo_de_solicitud_id	
             inner join referencia as ref_requerimiento on ref_requerimiento.id = tipo_de_requerimiento_id
@@ -179,7 +179,7 @@ try {
 			$this->_query= "UPDATE requerimiento SET 
 
 					fecha                    = :fecha,
-					hora                     = :hora,
+
 					tipo_de_solicitud_id     = :tipo_de_solicitud,
 					numero                   = :numero,
 					fecha_documento          = :fecha_documento,

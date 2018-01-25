@@ -38,7 +38,7 @@
 			if($_SERVER['REQUEST_METHOD']=='POST'){
 				$requerimiento = array(
 				':fecha' => $_POST['fecha'] ,
-				':hora' => $_POST['hora'] ,
+
 				':tipo_de_solicitud' => $_POST['tipo_de_solicitud'] ,
 				':numero' => $_POST['numero'] ,						
 				':fecha_documento' => $_POST['fecha_documento'] ,
